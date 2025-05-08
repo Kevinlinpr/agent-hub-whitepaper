@@ -396,8 +396,8 @@ nav ul li a:hover:after {
     }
     
     .nav-links .language-switch a {
-        width: auto;
         display: inline-flex;
+        padding: 8px;
     }
     
     .language-switch a:before {
