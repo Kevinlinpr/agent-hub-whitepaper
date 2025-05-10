@@ -191,7 +191,7 @@ header .container {
 
 .logo {
     display: flex;
-    flex-direction: column;
+    align-items: center;
 }
 
 .logo h1 {
@@ -208,6 +208,17 @@ header .container {
     margin: 0;
     font-size: 0.9rem;
     color: var(--text-light);
+}
+
+/* Logo图片样式 */
+.site-logo {
+    height: 40px;
+    vertical-align: middle;
+    margin-right: 12px;
+    display: inline-block;
+    border-radius: 8px;
+    background: #23263a;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
 }
 
 /* 导航样式 */
