@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://agentmarket.world/sitemap.xml 
