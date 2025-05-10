@@ -117,6 +117,8 @@
                     <p>We introduce the "Examiner Nodes" system. These special nodes are responsible for conducting "qualification examinations" for new or certification-applying Agents.</p>
                     <h4>2.2.2. Automated Preliminary Review Based on Large Language Models</h4>
                     <p>Examiner nodes will utilize advanced large language models (LLMs) to conduct multi-dimensional, automated preliminary capability verification and basic functionality testing of Agents. Agents that pass the exam will be "nominated" by examiner nodes and recorded on-chain, forming a transparent "Honor List" (Qualified Agent List) for network users to reference, making it easy to quickly find trusted new services.</p>
+                    <h4>2.2.3. Decentralized Governance and Incentives</h4>
+                    <p>Examiner nodes are selected from high-compute nodes through staking and DAO voting, with regular rotation to prevent power centralization. Different review processes are designed for different objects (high-compute Agents, low-compute nodes), and challenge/arbitration mechanisms are introduced to ensure decentralization, fairness, and anti-malicious behavior. Multi-dimensional incentives and reputation/penalty mechanisms are designed for examiner and infrastructure nodes to ensure their activeness and service quality.</p>
                 </div>
 
                 <div class="challenge-card">
@@ -178,6 +180,30 @@
                             <li>Clearing and settlement of service transactions.</li>
                             <li>Potential future decentralized governance parameters.</li>
                         </ul>
+                    </div>
+                    <div class="layer floating" style="animation-delay: 2.5s">
+                        <h3>3.5. Node Roles and Communication Patterns</h3>
+                        <p>
+                            <strong>Node Roles:</strong><br>
+                            <b>Low-compute nodes:</b> Mainly act as data and tool providers, and can also serve as MCP Server (Model Context Protocol Server), providing standardized data and tool access interfaces for large language models and other agents, as well as participating in service discovery, message routing, and infrastructure collaboration.<br>
+                            <b>High-compute nodes:</b> Responsible for executing complex Agent tasks (such as AI inference, core Agent services), and can serve as Examiner Nodes for network governance and review.
+                        </p>
+                        <p>
+                            <strong>Communication Patterns:</strong><br>
+                            <b>Agent ↔ Agent:</b> Direct collaboration between high-compute nodes to accomplish complex tasks.<br>
+                            <b>Agent ↔ MCP Server:</b> High-compute nodes obtain data, call tools, and perform service discovery and message routing via MCP Server (Model Context Protocol Server).<br>
+                            <b>MCP Server ↔ MCP Server:</b> Collaboration between low-compute nodes to maintain service directories, routing information, and P2P hole punching, ensuring decentralization and resilience of network infrastructure.
+                        </p>
+                        <p>
+                            <strong>Advantages:</strong> Fully utilizes heterogeneous computing power, achieves resource specialization and efficiency, lowers participation threshold, and promotes network scalability.
+                        </p>
+                        <p>
+                            <strong>Challenges and Solutions:</strong><br>
+                            <b>MCP Server Responsibilities & Decentralization:</b> Use DHT, Gossip and other distributed synchronization mechanisms to avoid centralization risks.<br>
+                            <b>Incentive Mechanisms:</b> Low-compute nodes are incentivized through data/tool services and infrastructure services, with reputation and penalty mechanisms.<br>
+                            <b>Examiner Node Governance:</b> High-compute nodes become examiners via staking/DAO voting, with diverse review processes and challenge/arbitration mechanisms to ensure decentralization and fairness.<br>
+                            <b>Security & Reliability:</b> Multi-level and cross-validation mechanisms, rapid detection and isolation of malicious nodes to ensure network health.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -361,7 +387,7 @@
                     <h2>Agent Market</h2>
                     <p>Building a Decentralized Intelligent Future</p>
                 </div>
-                <div class="footer-links">
+                <div class="footer-links" style="display:none">
                     <div class="link-group">
                         <h3>Documentation</h3>
                         <ul>
