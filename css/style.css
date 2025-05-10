@@ -543,10 +543,15 @@ nav ul li a:hover {
 }
 
 .abstract-content {
-    padding: 2.5rem 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    font-size: 1.1rem;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+.abstract-content.ai-glow {
+    box-shadow: none !important;
 }
 
 /* 优化摘要和页脚卡片阴影，更自然柔和 */
@@ -575,22 +580,20 @@ nav ul li a:hover {
     transform: translateY(-2px) scale(1.015);
 }
 
-/* 挑战卡片 */
+/* 挑战卡片瀑布流布局 */
 .challenges .section-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    column-count: 2;
+    column-gap: 2rem;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: block;
 }
 
 .challenge-card {
-    background: var(--card-bg) !important;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition);
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--border-color);
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 2rem;
+    padding: 2rem 1.5rem;
 }
 
 /* AI卡片背景效果 */
@@ -1648,4 +1651,10 @@ body {
 ::-webkit-scrollbar-thumb {
     background: #3b82f6;
     border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .challenges .section-content {
+    column-count: 1;
+  }
 } 
