@@ -175,11 +175,16 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(24,26,32,0.98) !important;
-    backdrop-filter: blur(6px);
+    background: rgba(24,26,32,0.92) !important;
+    backdrop-filter: blur(16px);
     z-index: 1000;
     box-shadow: 0 2px 12px 0 #3b82f622;
     padding: 1rem 0;
+    transition: background 0.3s;
+}
+
+header:hover {
+    background: rgba(24,26,32,0.98) !important;
 }
 
 header .container {
@@ -196,12 +201,15 @@ header .container {
 
 .logo h1 {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 2rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px #3b82f6cc, 0 2px 8px #0006;
 }
 
 .logo p {
@@ -214,11 +222,16 @@ header .container {
 .site-logo {
     height: 40px;
     vertical-align: middle;
-    margin-right: 12px;
+    margin-right: 16px;
     display: inline-block;
     border-radius: 8px;
     background: #23263a;
     box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+    transition: box-shadow 0.3s;
+}
+
+.site-logo:hover {
+    box-shadow: 0 0 16px 4px #8b5cf6cc;
 }
 
 /* 导航样式 */
@@ -249,6 +262,7 @@ nav ul li a {
     padding: 0.5rem 0;
     display: flex;
     align-items: center;
+    transition: color 0.2s, text-shadow 0.2s;
 }
 
 nav ul li a:after {
@@ -266,8 +280,9 @@ nav ul li a:hover:after {
     width: 100%;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li a:focus {
     color: #fff;
+    text-shadow: 0 0 8px #8b5cf6cc;
 }
 
 /* 移动端导航菜单 */
@@ -483,11 +498,13 @@ nav ul li a:hover {
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     margin-bottom: 1rem;
     line-height: 1.2;
     position: relative;
     display: inline-block;
+    text-shadow: 0 0 32px #3b82f6cc, 0 2px 8px #0008;
+    letter-spacing: 2px;
 }
 
 /* AI光晕效果 */
@@ -508,6 +525,8 @@ nav ul li a:hover {
     font-size: 2rem;
     margin-bottom: 1.5rem;
     font-weight: 400;
+    color: #a1a1aa;
+    text-shadow: 0 2px 8px #3b82f633;
 }
 
 .hero-content h2:after {
@@ -605,6 +624,10 @@ nav ul li a:hover {
     break-inside: avoid;
     margin-bottom: 2rem;
     padding: 2rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px 0 rgba(64,104,255,0.10), 0 1.5px 12px 0 rgba(0,0,0,0.10);
+    position: relative;
+    overflow: hidden;
 }
 
 /* AI卡片背景效果 */
@@ -625,7 +648,7 @@ nav ul li a:hover {
 
 .challenge-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 8px 32px 0 #3b82f6cc, 0 2px 16px 0 #8b5cf6cc;
 }
 
 .challenge-card:hover:after {
@@ -755,8 +778,8 @@ nav ul li a:hover {
 .layer {
     background: var(--card-bg) !important;
     padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px 0 rgba(64,104,255,0.10), 0 1.5px 12px 0 rgba(0,0,0,0.10);
     position: relative;
     overflow: hidden;
     border: 1px solid var(--border-color);
@@ -783,8 +806,8 @@ nav ul li a:hover {
 .feature {
     background: var(--card-bg) !important;
     padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+    box-shadow: 0 4px 24px 0 rgba(64,104,255,0.10), 0 1.5px 12px 0 rgba(0,0,0,0.10);
     transition: var(--transition);
     position: relative;
     overflow: hidden;
@@ -1153,8 +1176,11 @@ footer:after {
 }
 
 .footer-brand h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px #3b82f6cc;
 }
 
 .footer-brand h2:after {
@@ -1215,7 +1241,9 @@ footer:after {
 .footer-bottom p {
     margin: 0;
     opacity: 0.7;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    color: #a1a1aa;
+    letter-spacing: 0.5px;
 }
 
 /* 响应式设计 */
@@ -1584,21 +1612,23 @@ footer:after {
     backdrop-filter: none;
 }
 .card:hover, .challenge-card:hover, .feature:hover, .layer:hover {
-    box-shadow: 0 8px 32px 0 #3b82f655;
-    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 32px 0 #3b82f6cc, 0 2px 16px 0 #8b5cf6cc;
+    transform: translateY(-4px) scale(1.025);
 }
 
 /* 按钮更高级的渐变和光影 */
+.btn {
+    transition: box-shadow 0.2s, transform 0.15s;
+}
+.btn:active {
+    transform: scale(0.96);
+}
 .btn.primary {
-    background: var(--gradient-primary);
-    color: #fff;
-    border: none;
+    background: linear-gradient(100deg, #3b82f6 0%, #8b5cf6 100%);
     box-shadow: 0 2px 12px 0 #3b82f655;
 }
 .btn.primary:hover {
-    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-    box-shadow: 0 4px 24px 0 #8b5cf655;
-    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 0 24px 4px #8b5cf6cc;
 }
 
 /* 标题和分割线发光 */
@@ -1668,4 +1698,101 @@ body {
   .challenges .section-content {
     column-count: 1;
   }
+}
+
+/* ===== 视觉高级感与科技感增强 ===== */
+
+/* 1. Logo与站名协调 */
+.logo h1 {
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px #3b82f6cc, 0 2px 8px #0006;
+}
+.site-logo {
+    margin-right: 16px;
+    transition: box-shadow 0.3s;
+}
+.site-logo:hover {
+    box-shadow: 0 0 16px 4px #8b5cf6cc;
+}
+
+/* 2. 顶部导航毛玻璃悬浮 */
+header {
+    background: rgba(24,26,32,0.92) !important;
+    backdrop-filter: blur(16px);
+    transition: background 0.3s;
+}
+header:hover {
+    background: rgba(24,26,32,0.98) !important;
+}
+nav ul li a {
+    transition: color 0.2s, text-shadow 0.2s;
+}
+nav ul li a:hover, nav ul li a:focus {
+    color: #fff;
+    text-shadow: 0 0 8px #8b5cf6cc;
+}
+
+/* 3. 卡片顶部高光线+圆角+阴影升级 */
+.challenge-card, .feature, .layer {
+    border-radius: 20px;
+    box-shadow: 0 4px 24px 0 rgba(64,104,255,0.10), 0 1.5px 12px 0 rgba(0,0,0,0.10);
+    position: relative;
+    overflow: hidden;
+}
+.challenge-card::before, .feature::before, .layer::before {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+    opacity: 0.7;
+    position: absolute;
+    top: 0; left: 0;
+    border-radius: 20px 20px 0 0;
+}
+.challenge-card:hover, .feature:hover, .layer:hover {
+    box-shadow: 0 8px 32px 0 #3b82f6cc, 0 2px 16px 0 #8b5cf6cc;
+    transform: translateY(-4px) scale(1.025);
+}
+
+/* 4. 按钮动效升级 */
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* 5. 英雄区大标题更有冲击力 */
+.hero-content h1 {
+    font-size: 3.2rem;
+    text-shadow: 0 0 32px #3b82f6cc, 0 2px 8px #0008;
+    letter-spacing: 2px;
+}
+.hero-content h2 {
+    color: #a1a1aa;
+    text-shadow: 0 2px 8px #3b82f633;
+}
+
+/* 6. 响应式优化 */
+@media (max-width: 600px) {
+    .logo h1 { font-size: 1.3rem; }
+    .site-logo { height: 32px; margin-right: 8px; }
+    .challenge-card, .feature, .layer { border-radius: 14px; }
+    .challenge-card::before, .feature::before, .layer::before { border-radius: 14px 14px 0 0; }
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content h2 { font-size: 1.1rem; }
+}
+
+/* 7. 页脚品牌区优化 */
+.footer-brand h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px #3b82f6cc;
+}
+.footer-bottom p {
+    font-size: 0.95rem;
+    color: #a1a1aa;
+    letter-spacing: 0.5px;
 } 

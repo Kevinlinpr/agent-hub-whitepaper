@@ -278,16 +278,34 @@ function createNetworkVisualization(container) {
     
     // 绘制连接线
     function drawConnections() {
+        const now = Date.now();
         for (let i = 0; i < nodes.length; i++) {
             for (let j = i+1; j < nodes.length; j++) {
                 const dx = nodes[i].x - nodes[j].x;
                 const dy = nodes[i].y - nodes[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
-                
                 if (distance < 100) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(255, 255, 255, ${(100 - distance) / 200})`;
-                    ctx.lineWidth = 0.5;
+                    // 变色更明显
+                    const t = (Math.sin(now/900 + i*0.9 + j*1.7) + 1) / 2;
+                    const colorStops = [
+                        [59,130,246],   // 蓝
+                        [139,92,246],   // 紫
+                        [6,182,212],    // 青
+                        [251,146,60],   // 橙
+                        [255,56,100],   // 红
+                        [59,130,246]    // 蓝
+                    ];
+                    function lerp(a, b, t) { return a + (b-a)*t; }
+                    const seg = Math.floor(t * (colorStops.length-1));
+                    const localT = (t * (colorStops.length-1)) - seg;
+                    const c1 = colorStops[seg];
+                    const c2 = colorStops[(seg+1)%colorStops.length];
+                    const r = Math.round(lerp(c1[0], c2[0], localT));
+                    const g = Math.round(lerp(c1[1], c2[1], localT));
+                    const b = Math.round(lerp(c1[2], c2[2], localT));
+                    ctx.strokeStyle = `rgba(${r},${g},${b},${0.7 * (100-distance)/100})`;
+                    ctx.lineWidth = 1.2;
                     ctx.moveTo(nodes[i].x, nodes[i].y);
                     ctx.lineTo(nodes[j].x, nodes[j].y);
                     ctx.stroke();
